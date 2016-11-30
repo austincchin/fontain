@@ -9,6 +9,23 @@ h1 {
 	font-family: 'Bungee Shade','Century Gothic', 'Open Sans', cursive;
 }
 
+a:link{
+	color: #888;
+	text-decoration: none;
+}
+
+a:visited{
+	color: #888;
+}
+
+a:hover{
+	text-decoration: none;
+	background-color: #888;
+	color: #ffffff;
+}
+
+
+
 #credits {
 	line-height: 120%;
 	margin-top: 0px;

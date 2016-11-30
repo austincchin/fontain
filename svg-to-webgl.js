@@ -1,3 +1,4 @@
+/*
 // our utility functions
 var createGeometry = require('three-simplicial-complex')(THREE);
 var svgMesh3d = require('svg-mesh-3d');
@@ -20,4 +21,15 @@ var material = new THREE.MeshBasicMaterial({
 var mesh = new THREE.Mesh(geometry, material);
 
 // add to scene
-scene.add(mesh);
+scene.add(mesh);*/
+
+var loadSvg = require('load-svg');
+var parsePath = require('extract-svg-path').parse;
+var Svgmesh3d = reqire('svg-mesh-3d');
+
+loadSVG('svg/A.svg',function(err,svg){
+	if (err) throw err;
+
+	var svgPath = parsePath(svg);
+	var mesh = svgMesh3d(svgPath,{delaunay: false, scale: 4;})
+})
