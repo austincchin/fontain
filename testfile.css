@@ -1,13 +1,17 @@
+body{
+	font-family: 'Open Sans','Calibri', sans-serif;
+	background-color: #f4f4f4;
+}
 h1 {
 	margin: auto;
-	line-height: 100%;
-	font-size: 48px;
-	font-family: 'Bungee','Open Sans';
+	line-height: 120%;
+	font-size: 56px;
+	font-family: 'Bungee Shade','Century Gothic', 'Open Sans', cursive;
 }
 
-h3 {
-	line-height: 110%;
+h4 {
+	line-height: 120%;
 	margin-top: 0px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', 'Calibri',sans-serif;
 }
 

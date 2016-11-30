@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="Common/webgl-utils.js"></script>
 	<script type="text/javascript" src="Common/initShaders.js"></script>
 	<script type="text/javascript" src="Common/MVnew.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Bungee|Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Open+Sans" rel="stylesheet">
 	<link href="testfile.css" rel="stylesheet">
 	<script type="text/javascript" src="js/starship_hw4.js"></script>
 
@@ -59,9 +59,11 @@
 </head>
 <body>
 	<script src="js/three.min.js"></script>
-	<div style="width:600px;background-color:coral;margin:auto;">
+	<div style="width:512px;margin:auto;">
 		<h1>FONTAIN</h1>
-		<h3>Austin Chin & Geoff Rosenthal</br>Computer Graphics Fall 2016</h3>
+		<!--
+		Canvas Information can be found below this line
+		-->
 		<div>X-axis: 0 <input id="sliderX" type="range"
   		min="0" max="360" step="1" value="0" />360 </div>
 
@@ -71,9 +73,13 @@
     <div>Z-axis: 0 <input id="sliderZ" type="range"
   		min="0" max="360" step="1" value="0" />360 </div>
 
-		<canvas id="gl-canvas" width="600" height="600" style="margin:auto;padding:0px;border-top: thick solid MediumTurquoise;">
+		<canvas id="gl-canvas" width="512" height="512" style="margin:auto;padding:0px;border-top: thick solid black;">
 		Oops ... your browser doesn't support the HTML5 canvas element
 		</canvas>
+		<!--
+		Canvas ends here
+		-->
+		<h4>Austin Chin & Geoff Rosenthal</br><a href="https://www.ecse.rpi.edu/Homepages/wrf/Teaching/graphics-f2016/">Fall 2016</a> Computer Graphics</h4>
 	</div>
 </body>
 </html>
