@@ -15866,6 +15866,21 @@ window.onload = function init()
         vec3(-0.1406, -0.3254, 0.1172),     
     ];
 
+    // Insert svg code here
+    //var loadSvg = require('load-svg');
+    /*var parsePath = require('extract-svg-path').parse;
+    var SvgMesh3d = reqire('svg-mesh-3d');
+    var SvgToLoad = 'svg/A.svg';
+
+    loadSVG(SvgToLoad,function(err,svg){
+        if (err) throw err;
+
+        var svgPath = parsePath(svg);
+        var mesh = svgMesh3d(svgPath,{delaunay: false, scale: 4;})
+        console.log(mesh);
+    })*/
+    //end svg code
+
     gl.bufferData( gl.ARRAY_BUFFER, flatten(Rvertices), gl.STATIC_DRAW );
     RVertexPositionBuffer.itemSize = 3;
     RVertexPositionBuffer.numItems = 11874;

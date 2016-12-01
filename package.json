@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "budo demo/:bundle.js --live -- -t babelify -t brfs | garnish",
+    "build": "browserify demo/index.js -t babelify -t brfs | uglifyjs -cm > bundle.js"
+  },
+  "dependencies": {
+    "svg-mesh-3d": "^1.1.0"
+  }
+}
