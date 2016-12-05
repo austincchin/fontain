@@ -1,6 +1,6 @@
 import createLoop from 'canvas-loop'
 
-var size = 512;
+var size = 400;
 var letterNum = document.getElementById("letter").value;
 var mesh;
 var A = {char:"A", mesh:{}, X:1, Y:1};
@@ -104,7 +104,7 @@ function render () {
         context.lineCap = 'round';
         context.lineWidth = 2 / scale;
         drawTriangles(context, temp.positions, temp.cells);
-        context.fillStyle = '#d86c15';
+        context.fillStyle = '#000000';
         context.strokeStyle = '#3b3b3b';
         context.fill();
         context.stroke();
@@ -123,7 +123,7 @@ function render () {
     context.lineCap = 'round';
     context.lineWidth = 2 / scale;
     drawTriangles(context, mesh.positions, mesh.cells);
-    context.fillStyle = '#d86c15';
+    context.fillStyle = '#000000';
     context.strokeStyle = '#3b3b3b';
     context.fill();
     context.stroke();
