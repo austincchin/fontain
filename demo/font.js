@@ -127,7 +127,7 @@ function render () {
       
       
       loadSvg('demo/svg/singleChar/' + word[i] + '.svg', function (err, svg) {
-        var html = await getRandomPonyFooArticle();
+        //var html = await getRandomPonyFooArticle();
         console.log("index: " + i);
         if (err) throw err
         //console.log(i);
