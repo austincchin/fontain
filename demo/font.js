@@ -63,6 +63,17 @@ loadSvg(path, function (err, svg) {
 
 document.getElementById("sliderX").onchange = function(event) {
     letters[letterNum].X = event.target.value;
+    var x_scale = event.target.value;
+    //console.log("XSCALE IS " + x_scale);
+
+    if (word != ""){
+      var i=0;
+      while (i<word.length){
+        var cNum = word.charCodeAt(i)-65;
+        letters[cNum].X = event.target.value;
+        i += 1;
+      }
+    }
     //console.log(letters[letterNum].X);
     render();
 };
@@ -70,6 +81,16 @@ document.getElementById("sliderX").onchange = function(event) {
 document.getElementById("sliderY").onchange = function(event) {
     letters[letterNum].Y = event.target.value;
     //console.log(letters[letterNum].Y);
+
+    if (word != ""){
+      var i=0;
+      while (i<word.length){
+        var cNum = word.charCodeAt(i)-65;
+        letters[cNum].Y = event.target.value;
+        i += 1;
+      }
+    }
+
     render();
 };
 
@@ -136,15 +157,19 @@ function render () {
           scale: 1,
           simplify: 0.01
         })
-
-        var x_trans = (512/word.length-50)+((130-(4*word.length))*offset);
+        var x_scale = scale/letters[num].X;
+        var y_scale = -scale/letters[num].Y;
+        var x_trans = (512/word.length-50)+((130-(4*word.length))*(offset));
+        console.log(letters[num].X);
+        
 
         console.log(i);
         console.log(temp);
         context.save();
         context.translate(x_trans, (size/2));
         console.log("translated " + word[offset] +  " to x: " + x_trans);
-        context.scale(scale/letters[num].X, -scale/letters[num].Y);
+        context.scale(x_scale, y_scale);
+        console.log("x_scale: " + x_scale + "\ty_scale: " + y_scale);
         context.beginPath();
         context.lineJoin = 'round';
         context.lineCap = 'round';
