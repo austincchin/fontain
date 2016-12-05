@@ -87,7 +87,14 @@ a:hover{
 /* Range styling resource from https://css-tricks.com/
 	  styling-cross-browser-compatible-range-inputs-css/ */
 
-
+input[type=submit]{
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 5px;
+}
 
 input[type=range] {
   -webkit-appearance: none;
