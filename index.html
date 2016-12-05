@@ -1,86 +1,38 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>FONTAIN</title>
-	<script type="text/javascript" src="Common/webgl-utils.js"></script>
-	<script type="text/javascript" src="Common/initShaders.js"></script>
-	<script type="text/javascript" src="Common/MVnew.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Open+Sans" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Fontain</title>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet'>
 	<link href="testfile.css" rel="stylesheet">
-	<script type="text/javascript" src="js/starship_hw4.js"></script>
-
-	<script id="vertex-shader" type="x-shader/x-vertex">
-		attribute vec4 vPosition;
-		attribute vec4 Normal;
-		varying vec4 color;
-		//uniform mat4 rotation;
-
-		uniform vec3 theta;
-
-		void main() {
-   			vec3 c = cos(theta);
-    		vec3 s = sin(theta);
-
-    mat4 rx = mat4( 1.0,  0.0,  0.0, 0.0,
-		    0.0,  c.x,  s.x, 0.0,
-		    0.0, -s.x,  c.x, 0.0,
-		    0.0,  0.0,  0.0, 1.0 );
-
-    mat4 ry = mat4( c.y, 0.0, -s.y, 0.0,
-		    0.0, 1.0,  0.0, 0.0,
-		    s.y, 0.0,  c.y, 0.0,
-		    0.0, 0.0,  0.0, 1.0 );
-
-
-    mat4 rz = mat4( c.z, s.z, 0.0, 0.0,
-		    -s.z,  c.z, 0.0, 0.0,
-		    0.0,  0.0, 1.0, 0.0,
-		    0.0,  0.0, 0.0, 1.0 );
-
-    		mat4 Rotated = rz * ry * rx;
-    	  gl_Position = Rotated * vPosition;
-    	  color = Normal;
-		}
-	</script>
-
-	<script id="fragment-shader" type="x-shader/x-fragment">
-
-		precision mediump float;
-		varying vec4 color;
-	
-		void
-		main(){
-			gl_FragColor = vec4(color[0],color[1],color[2],1.0);
-		}
-	</script>
-
-
 </head>
 <body>
-	<script src="js/three.min.js"></script>
-	<div style="width:512px;margin:auto;">
-		<h1>FONTAIN</h1>
+  <canvas></canvas>
+  <div style="width:512px;margin:auto;">
+		<h1 align='center'>FONTAIN</h1>
 		<!--
 		Canvas Information can be found below this line
 		-->
-		<div class="slider">X-axis: 0 <input id="sliderX" type="range"
-  		min="0" max="360" step="1" value="0" /> 360 </div>
 
-  	<div class="slider">Y-axis: 0 <input id="sliderY" type="range"
-  		min="0" max="360" step="1" value="0" /> 360 </div>
+		<div class="slider">Horizontal Scale:</br>1 <input id="sliderX" type="range"
+  		min="1" max="10" step=".1" value="1" /> 10 </div>
 
-    <div class="slider">Z-axis: 0 <input id="sliderZ" type="range"
-  		min="0" max="360" step="1" value="0" /> 360 </div>
+  	<div class="slider">Vertical Scale:</br>1 <input id="sliderY" type="range"
+  		min="1" max="10" step=".1" value="1" /> 10 </div>
 
-		<canvas id="gl-canvas" width="512" height="512" style="margin:auto;padding:0px;border-top: thick solid black;">
-		Oops ... your browser doesn't support the HTML5 canvas element
-		</canvas>
-		<!--
-		Canvas ends here
-		-->
-		<p id="credits"><a href="http://austincchin.carbonmade.com">Austin Chin</a> & <a href="http://geoffrosenthal.com">Geoff Rosenthal</a></br><a href="https://www.ecse.rpi.edu/Homepages/wrf/Teaching/graphics-f2016/">Fall 2016</a> Computer Graphics
-		</br>fontain @ <a href="https://github.com/ebi888/fontain">Github</a></p>
-	</div>
+    <div class="slider">Letter:</br>0 <input id="letter" type="range"
+  		min="0" max="3" step="1" value="0" /> 4 </div>
+
+    <canvas id="gl-canvas" width="512" height="512" style="margin:auto;padding:0px;border-top: thick solid black;"></canvas>
+
+    <div>
+      <p id="credits" style="padding-top:5px;"><a href="http://austincchin.carbonmade.com">Austin Chin</a> & <a href="http://geoffrosenthal.com">Geoff Rosenthal</a>. <a href="https://www.ecse.rpi.edu/Homepages/wrf/Teaching/graphics-f2016/">Fall 2016</a> Computer Graphics.
+      fontain @ <a href="https://github.com/ebi888/fontain">Github</a></p>
+      <script style="display:block; margin:auto;" src="bundle.js" async></script>
+	  </div>
+
+    </div>
+  
 </body>
 </html>

@@ -1,12 +1,63 @@
-body{
-	font-family: 'Open Sans','Calibri', sans-serif;
-	background-color: #f4f4f4;
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+
+body {
+  font-family: 'Noto Sans', Helvetica, sans-serif;
+  font-size: 16px;
+  background: #97c2c5;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  color: #4C4C4C;
+}
+canvas {
+  display: block;
+  position: fixed;
+  z-index: -5;
+}
+div {
+  margin: 10px;
+  font-weight: 700;
+  font-size: 13px;
+}
+p {
+  z-index: 10;
+  font-weight: 300;
+  margin: 5px 0px;
+}
+.link, .link:active, .info:visited {
+  text-decoration: none;
+  font-weight: 700;
+  color: #424242;
+  position: relative;
+}
+.link:hover {
+}
+.link::after, .link:hover::after {
+  content: ' ';
+  width: 100%;
+  left: 0;
+  background: currentColor;
+  z-index: 10;
+  position: absolute;
+  -webkit-transition: all 0.05s ease-out;
+  -moz-transition: all 0.05s ease-out;
+  -ms-transition: all 0.05s ease-out;
+  -o-transition: all 0.05s ease-out;
+  transition: all 0.05s ease-out;
+}
+.link::after {
+  height: 0px;
+  bottom: 0px;
+}
+.link:hover::after {
+  height: 4px;
+  bottom: -4px;
 }
 h1 {
 	margin: auto;
 	line-height: 120%;
 	font-size: 56px;
 	font-family: 'Bungee Shade','Century Gothic', 'Open Sans', cursive;
+  color: #111111;
 }
 
 a:link, a:visited{
@@ -35,6 +86,8 @@ a:hover{
 
 /* Range styling resource from https://css-tricks.com/
 	  styling-cross-browser-compatible-range-inputs-css/ */
+
+
 
 input[type=range] {
   -webkit-appearance: none;

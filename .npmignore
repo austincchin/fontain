@@ -3,4 +3,8 @@ node_modules
 *.log
 .DS_Store
 bundle.js
-demo/svg/entypo/
+test
+test.js
+demo/
+.npmignore
+LICENSE.md
