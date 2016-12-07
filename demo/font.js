@@ -128,74 +128,60 @@ document.getElementById("wordInput").onchange = function(event) {
 
 };
 
+function donothing() {};
+
 function render () {
   context.clearRect(0, 0, size, size);
   context.save();
-  //console.log(letters);
 
   var center;
   if (word.length>0) {
     var i = 0;
     var scale = size / (word.length*3); //scale to fit onto page
     var offset = 0;
+    var temp;
+    var meshes = [];
+    var num;
     while (i<word.length) {             //iterate through word
-      console.log("hey, i = " + i + "/" + (word.length-1));      
-      var temp;
-      var num;
+      
       num = word.charCodeAt(i)-65;
       console.log(num + " (" + letters[num].char + ")");
 
-      
-      
       loadSvg('demo/svg/singleChar/' + word[i] + '.svg', function (err, svg) {
-        //var html = await getRandomPonyFooArticle();
-        console.log("index: " + i);
+        var t=i;
         if (err) throw err
-        //console.log(i);
         var svgPath = extractPath(svg);
         temp = createMesh(svgPath, {
           scale: 1,
           simplify: 0.01
-        })
-        var x_scale = scale/letters[num].X;
-        var y_scale = -scale/letters[num].Y;
-        var x_trans = (512/word.length-50)+((130-(4*word.length))*(offset));
-        console.log(letters[num].X);
-        
-
-        console.log(i);
-        console.log(temp);
+        });
+        var x_scale = letters[num].X;
+        var y_scale = letters[num].Y;
+        var x_trans = (512/word.length-50)+((80-(4*word.length))*(offset));
         context.save();
-        context.translate(x_trans, (size/2));
-        console.log("translated " + word[offset] +  " to x: " + x_trans);
-        context.scale(x_scale, y_scale);
-        console.log("x_scale: " + x_scale + "\ty_scale: " + y_scale);
-        context.beginPath();
-        context.lineJoin = 'round';
-        context.lineCap = 'round';
-        context.lineWidth = 2 / scale;
-        drawTriangles(context, temp.positions, temp.cells);
-        context.fillStyle = '#000000';
-        context.strokeStyle = '#000000';
-        context.fill();
-        context.stroke();
-        context.restore();
+        meshes.push({m:temp, s:size, c:scale, o:x_trans, x:x_scale, y:y_scale, order:offset});
+        singleRender(meshes[offset].m, meshes[offset].s, meshes[offset].c, meshes[offset].o, meshes[offset].x, meshes[offset].y);
+        console.log(meshes[offset].o);
+        console.log(meshes[offset].m);
         offset += 1;
       });
-
-      i++;
-      }
+      i+=1;
+    }
   }
 
   else {
     var scale = size / 2;
-    context.translate(size/2, size/2);
-    context.scale(scale/letters[letterNum].X, -scale/letters[letterNum].Y);
+    singleRender(mesh, size, scale, size/2, letters[letterNum].X, letters[letterNum].Y);
+  }
+
+  function singleRender(m, s, c, o, x, y) {
+    context.translate(o, s/2);
+    context.scale(c/x, -c/y);
     context.beginPath();
     context.lineJoin = 'round';
     context.lineCap = 'round';
-    context.lineWidth = 2 / scale;
-    drawTriangles(context, mesh.positions, mesh.cells);
+    context.lineWidth = 2 / c;
+    drawTriangles(context, m.positions, m.cells);
     context.fillStyle = '#000000';
     context.strokeStyle = '#000000';
     context.fill();
