@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Fontain</title>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet'>
+	<link href="testfile.css" rel="stylesheet">
+</head>
+<body>
+  <script style="align:center; display:block; margin:auto;" src="bundle.js" async></script>
+  <canvas></canvas>
+  <div style="width:512px;margin:auto;">
+
+		<h1>FONTAIN</h1>
+		<!--
+		Canvas Information can be found below this line
+		-->
+
+		<div class="slider">Horizontal Scale:</br>1 <input id="sliderX" type="range"
+  		min="1" max="10" step=".1" value="1" /> 10 </div>
+
+  	<div class="slider">Vertical Scale:</br>1 <input id="sliderY" type="range"
+  		min="1" max="10" step=".1" value="1" /> 10 </div>
+
+    <div class="slider">Letter:</br>A <input id="letter" type="range"
+  		min="0" max="25" step="1" value="0" /> Z </div>
+
+    <div class="slider">Word:</br> <input id="wordInput" type="text" name="wordInput" />  </div> 
+
+    <div class="slider"><input type="submit" value="Submit" /></div> 
+
+    
+
+    <canvas id="gl-canvas" width="512" height="512" style="margin:auto;padding:0px;border-top: thick solid black;"></canvas>
+
+
+
+    <div>
+      <p id="credits" style="padding-top:5px;"><a href="http://austincchin.carbonmade.com">Austin Chin</a> & <a href="http://geoffrosenthal.com">Geoff Rosenthal</a>. <a href="https://www.ecse.rpi.edu/Homepages/wrf/Teaching/graphics-f2016/">Fall 2016</a> Computer Graphics.
+      fontain @ <a href="https://github.com/ebi888/fontain">Github</a></p>
+	  </div>
+
+  </div>
+  
+</body>
+</html>
